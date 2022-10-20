@@ -6,12 +6,14 @@
   "private": true,
   "license": "GPL",
   "scripts": {
+    "git": "git add . && cm_addlongname && git push",
     "dev": "cross-env NODE_ENV=online node build/dev-server.js",
     "local": "cross-env NODE_ENV=local node build/dev-server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
     "better-scroll": "1.15.2",
+    "cm_addlongname": "^1.0.8",
     "fastclick": "^1.0.6",
     "iscroll": "^5.2.0",
     "showdown": "^1.6.4",

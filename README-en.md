@@ -6,7 +6,6 @@ When I began to learn to vue, search of some practical source code about vue, bu
 
 This functional project is practical but often boring, with no music player so gorgeous. For a long time, I think that Elm APP is a good material. First, it is complex that the open delivery platform is more complicated than the typical project. Second, you won't get bored seeing so much beautiful food.
 
-But why is the Elm APP, not Baidu App or Meituan App? The reason is simple, that Elm's layout is the most beautiful and the most comfortable in the three APP.
 
 There are 45 pages of this project, involving registration, login, merchandise display, shopping cart, order and so on. It is a complete process. The average company project is not that complicated, so if you can understand this project fully, I believe that you can able to do the most of single-page applications in the other company. Even if it's more complex, and it won't be much higher than this one.
 
