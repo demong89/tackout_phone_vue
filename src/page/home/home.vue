@@ -64,6 +64,8 @@ import {
   hotcity as getHotCity,
   groupcity as getGroupCity,
 } from "../../service/getData";
+import {useStore} from 'vuex'
+import {useRoute,useRouter} from 'vue-router'
 import { ref, onMounted, computed, reactive, watch } from "vue";
 
 export default {
@@ -75,6 +77,10 @@ export default {
     const guessCityid = ref(""); //当前城市id
     let hotcity = ref(); //热门城市列表
     let groupcity = ref({}); //所有城市列表
+
+    const store = useStore()
+    const route = useRoute()//路由信息
+    const router = useRouter() // 路由跳转
 
     onMounted(() => {
       // 获取当前城市
@@ -113,7 +119,8 @@ export default {
       hotcity,
       groupcity,
       sortgroupcity,
-      reload
+      reload,
+      store
     };
   },
 
