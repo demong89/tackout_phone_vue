@@ -1,55 +1,57 @@
 import App from '../App'
+import {createRouter, createWebHistory} from 'vue-router'
 
-const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
-const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
-const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
-const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
-const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
-const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
-const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
-const forget = r => require.ensure([], () => r(require('../page/forget/forget')), 'forget')
-const order = r => require.ensure([], () => r(require('../page/order/order')), 'order')
-const orderDetail = r => require.ensure([], () => r(require('../page/order/children/orderDetail')), 'orderDetail')
-const vipcard = r => require.ensure([], () => r(require('../page/vipcard/vipcard')), 'vipcard')
-const invoiceRecord = r => require.ensure([], () => r(require('../page/vipcard/children/invoiceRecord')), 'invoiceRecord')
-const useCart = r => require.ensure([], () => r(require('../page/vipcard/children/useCart')), 'useCart')
-const vipDescription = r => require.ensure([], () => r(require('../page/vipcard/children/vipDescription')), 'vipDescription')
-const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
-const confirmOrder = r => require.ensure([], () => r(require('../page/confirmOrder/confirmOrder')), 'confirmOrder')
-const remark = r => require.ensure([], () => r(require('../page/confirmOrder/children/remark')), 'remark')
-const payment = r => require.ensure([], () => r(require('../page/confirmOrder/children/payment')), 'payment')
-const userValidation = r => require.ensure([], () => r(require('../page/confirmOrder/children/userValidation')), 'userValidation')
-const invoice = r => require.ensure([], () => r(require('../page/confirmOrder/children/invoice')), 'invoice')
-const chooseAddress = r => require.ensure([], () => r(require('../page/confirmOrder/children/chooseAddress')), 'chooseAddress')
-const addAddress = r => require.ensure([], () => r(require('../page/confirmOrder/children/children/addAddress')), 'addAddress')
-const searchAddress = r => require.ensure([], () => r(require('../page/confirmOrder/children/children/children/searchAddress')), 'searchAddress')
-const foodDetail = r => require.ensure([], () => r(require('../page/shop/children/foodDetail')), 'foodDetail')
-const shopDetail = r => require.ensure([], () => r(require('../page/shop/children/shopDetail')), 'shopDetail')
-const shopSafe = r => require.ensure([], () => r(require('../page/shop/children/children/shopSafe')), 'shopSafe')
-const info = r => require.ensure([], () => r(require('../page/profile/children/info')), 'info')
-const setusername = r => require.ensure([], () => r(require('../page/profile/children/children/setusername')), 'setusername')
-const address = r => require.ensure([], () => r(require('../page/profile/children/children/address')), 'address')
-const add = r => require.ensure([], () => r(require('../page/profile/children/children/children/add')), 'add')
-const addDetail = r => require.ensure([], () => r(require('../page/profile/children/children/children/children/addDetail')), 'addDetail')
-const balance = r => require.ensure([], () => r(require('../page/balance/balance')), 'balance')
-const balanceDetail = r => require.ensure([], () => r(require('../page/balance/children/detail')), 'balanceDetail')
-const benefit = r => require.ensure([], () => r(require('../page/benefit/benefit')), 'benefit')
-const coupon = r => require.ensure([], () => r(require('../page/benefit/children/coupon')), 'coupon')
-const hbDescription = r => require.ensure([], () => r(require('../page/benefit/children/hbDescription')), 'hbDescription')
-const hbHistory = r => require.ensure([], () => r(require('../page/benefit/children/hbHistory')), 'hbHistory')
-const exchange = r => require.ensure([], () => r(require('../page/benefit/children/exchange')), 'exchange')
-const commend = r => require.ensure([], () => r(require('../page/benefit/children/commend')), 'commend')
-const points = r => require.ensure([], () => r(require('../page/points/points')), 'points')
-const pointsDetail = r => require.ensure([], () => r(require('../page/points/children/detail')), 'pointsDetail')
-const service = r => require.ensure([], () => r(require('../page/service/service')), 'service')
-const questionDetail = r => require.ensure([], () => r(require('../page/service/children/questionDetail')), 'questionDetail')
-const find = r => require.ensure([], () => r(require('../page/find/find')), 'find')
-const download = r => require.ensure([], () => r(require('../page/download/download')), 'download')
+import home from '../page/home/home'
+import city from '../page/city/city'
+import msite from '../page/msite/msite'
+import search from '../page/search/search'
+import shop from '../page/shop/shop'
+import login from '../page/login/login'
+import profile from '../page/profile/profile'
+import forget from '../page/forget/forget'
+
+import order from '../page/order/order'
+import orderDetail from '../page/order/children/orderDetail'
+import vipcard from '../page/vipcard/vipcard'
+import invoiceRecord from '../page/vipcard/children/invoiceRecord'
+import useCart from '../page/vipcard/children/useCart'
+import vipDescription  from  '../page/vipcard/children/vipDescription'  
+import food  from  '../page/food/food'  
+import confirmOrder  from  '../page/confirmOrder/confirmOrder'  
+import remark  from  '../page/confirmOrder/children/remark'  
+import payment  from  '../page/confirmOrder/children/payment'   
+import userValidation  from  '../page/confirmOrder/children/userValidation'  
+import invoice  from  '../page/confirmOrder/children/invoice' 
+import chooseAddress  from  '../page/confirmOrder/children/chooseAddress' 
+import addAddress  from  '../page/confirmOrder/children/children/addAddress'  
+import searchAddress  from  '../page/confirmOrder/children/children/children/searchAddress'  
+import foodDetail  from  '../page/shop/children/foodDetail'   
+import shopDetail  from  '../page/shop/children/shopDetail'  
+import shopSafe  from  '../page/shop/children/children/shopSafe'   
+import info  from  '../page/profile/children/info'  
+import setusername  from  '../page/profile/children/children/setusername'   
+import address  from  '../page/profile/children/children/address'   
+import add  from  '../page/profile/children/children/children/add'   
+import addDetail  from  '../page/profile/children/children/children/children/addDetail'   
+import balance  from  '../page/balance/balance'   
+import balanceDetail  from  '../page/balance/children/detail'   
+import benefit  from  '../page/benefit/benefit'   
+import coupon  from  '../page/benefit/children/coupon'   
+import hbDescription  from  '../page/benefit/children/hbDescription'   
+import hbHistory  from  '../page/benefit/children/hbHistory'   
+import exchange  from  '../page/benefit/children/exchange'   
+import commend  from  '../page/benefit/children/commend'   
+import points  from  '../page/points/points'  
+import pointsDetail  from  '../page/points/children/detail'   
+import service  from  '../page/service/service'  
+import questionDetail  from  '../page/service/children/questionDetail'  
+import find  from  '../page/find/find'  
+import download  from  '../page/download/download'  
 
 
 
 
-export default [{
+const routes = [{
     path: '/',
     component: App, //顶层路由，对应index.html
     children: [ //二级路由。对应App.vue
@@ -251,3 +253,9 @@ export default [{
         },
     ]
 }]
+
+const router = createRouter({
+    history:createWebHistory(process.env.BASE_URL),
+    routes
+})
+export default router

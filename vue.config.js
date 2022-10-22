@@ -1,6 +1,13 @@
 const path = require('path')
+const  SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin') 
+
+const spm = new SpeedMeasureWebpackPlugin({
+  disable:!(process.env.spm === 'true'),
+  outputFormat:'humanVerbose'
+})
+
 module.exports = {
-  configureWebpack:{
+  configureWebpack:spm.wrap({
     resolve: {
       alias: {
           'src': path.resolve(__dirname, './src'),
@@ -8,5 +15,5 @@ module.exports = {
           'components': path.resolve(__dirname, './src/components')
       }
   },
-  }
+  })
 }
