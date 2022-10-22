@@ -1,11 +1,11 @@
 <template>
   <div>
-    <head-top signin-up="home">
-      <span slot="logo" class="head_logo" >ele.me</span>
-    </head-top>
+    <HeadTop signin-up="home">
+      <span slot="logo" class="head_logo">ele.me</span>
+    </HeadTop>
     <nav class="city_nav">
       <div class="city_tip">
-        <span @click="reload">当前定位城市：</span >
+        <span @click="reload">当前定位城市：</span>
         <span>定位不准时，请在城市列表中选择</span>
       </div>
       <router-link :to="'/city/' + guessCityid" class="guess_city">
@@ -57,73 +57,55 @@
   </div>
 </template>
 
-<script>
-import headTop from "../../components/header/head";
+<script setup>
+import HeadTop from "../../components/header/head";
 import {
   cityGuess,
   hotcity as getHotCity,
   groupcity as getGroupCity,
 } from "../../service/getData";
-import {useStore} from 'vuex'
-import {useRoute,useRouter} from 'vue-router'
+import { useStore } from "vuex";
+import { useRoute, useRouter } from "vue-router";
 import { ref, onMounted, computed, reactive, watch } from "vue";
 
-export default {
-  components: {
-    headTop,
-  },
-  setup() {
-    const guessCity = ref(""); //当前城市
-    const guessCityid = ref(""); //当前城市id
-    let hotcity = ref(); //热门城市列表
-    let groupcity = ref({}); //所有城市列表
+const guessCity = ref(""); //当前城市
+const guessCityid = ref(""); //当前城市id
+let hotcity = ref(); //热门城市列表
+let groupcity = ref({}); //所有城市列表
 
-    const store = useStore()
-    const route = useRoute()//路由信息
-    const router = useRouter() // 路由跳转
+const store = useStore();
+const route = useRoute(); //路由信息
+const router = useRouter(); // 路由跳转
 
-    onMounted(() => {
-      // 获取当前城市
-      cityGuess().then((res) => {
-        guessCity.value = res.name;
-        guessCityid.value = res.id;
-      });
+onMounted(() => {
+  // 获取当前城市
+  cityGuess().then((res) => {
+    guessCity.value = res.name;
+    guessCityid.value = res.id;
+  });
 
-      //获取热门城市
-      getHotCity().then((res) => {
-        hotcity.value = res;
-      });
+  //获取热门城市
+  getHotCity().then((res) => {
+    hotcity.value = res;
+  });
 
-      //获取所有城市
-      getGroupCity().then((res) => {
-        groupcity.value = res;
-      });
-    });
+  //获取所有城市
+  getGroupCity().then((res) => {
+    groupcity.value = res;
+  });
+});
 
-    const sortgroupcity = computed(() => {
-      let sortobj = {};
-      for (let i = 65; i <= 90; i++) {
-        if (groupcity.value[String.fromCharCode(i)]) {
-          sortobj[String.fromCharCode(i)] =
-            groupcity.value[String.fromCharCode(i)];
-        }
-      }
-      return sortobj;
-    });
-    const reload = () => {
-      window.location.reload();
-    };
-    return {
-      guessCity,
-      guessCityid,
-      hotcity,
-      groupcity,
-      sortgroupcity,
-      reload,
-      store
-    };
-  },
-
+const sortgroupcity = computed(() => {
+  let sortobj = {};
+  for (let i = 65; i <= 90; i++) {
+    if (groupcity.value[String.fromCharCode(i)]) {
+      sortobj[String.fromCharCode(i)] = groupcity.value[String.fromCharCode(i)];
+    }
+  }
+  return sortobj;
+});
+const reload = () => {
+  window.location.reload();
 };
 </script>
 
