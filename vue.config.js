@@ -8,6 +8,7 @@ const spm = new SpeedMeasureWebpackPlugin({
 });
 
 module.exports = {
+  parallel:true,
   configureWebpack: spm.wrap({
     resolve: {
       alias: {
@@ -19,16 +20,16 @@ module.exports = {
     // plugins: [new BundleAnalyzerPlugin()],
     module:{
       rules:[
-        {
-          test:/\.js$/,
-          exclude:/node_modules/,
-          use:[{
-            loader:'thread-loader',
-            options:{
-              worker:6
-            }
-          }]
-        }
+        // {
+        //   test:/\.js$/,
+        //   exclude:/node_modules/,
+        //   use:[{
+        //     loader:'thread-loader',
+        //     options:{
+        //       worker:6
+        //     }
+        //   }]
+        // }
       ]
     }
   }),
