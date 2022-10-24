@@ -979,7 +979,7 @@
                 .menu_detail_header_right{
                     @include wh(.5rem, 1rem);
                     display: block;
-                    @include bis('../../images/icon_point.png');
+                    /* @include bis('../../images/'); */
                     background-size: 100% .4rem;
                     background-position: left center;
                 }

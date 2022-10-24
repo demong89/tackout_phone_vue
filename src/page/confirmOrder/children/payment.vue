@@ -193,7 +193,7 @@
                 align-items: center;
                 .zhifubao{
                     @include wh(2rem, 2rem);
-                    background: url(../../../images/zhifubao.png) no-repeat;
+                    /* background: url(../../../images/zhifubao.png) no-repeat; */
                     background-size: 100% 100%;
                     margin-right: .2rem;
                 }

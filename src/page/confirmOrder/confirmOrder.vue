@@ -322,7 +322,7 @@
         @include fj;
         align-items: center;
         padding: 0 0.6rem;
-        background: url(../../images/address_bottom.png) left bottom repeat-x;
+        /* background: url(../../images/address_bottom.png) left bottom repeat-x; */
         background-color: #fff;
         background-size: auto .12rem;
         .address_empty_left{
