@@ -5,7 +5,6 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 
-console.log('AddAssetHtmlWebpackPlugin',path.resolve(__dirname,'./dll/vue.dll.js'));
 
 const spm = new SpeedMeasureWebpackPlugin({
   disable: !(process.env.spm === "true"),
@@ -16,6 +15,10 @@ module.exports = {
   publicPath:'./',
   // parallel:true,
   configureWebpack: spm.wrap({
+    cache:{
+      type:'filesystem',
+      cacheDirectory:path.resolve(__dirname,'./.cache')
+    },
     resolve: {
       alias: {
         src: path.resolve(__dirname, "./src"),
