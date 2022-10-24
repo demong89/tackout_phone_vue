@@ -16,6 +16,20 @@ module.exports = {
         components: path.resolve(__dirname, "./src/components"),
       },
     },
-    plugins: [new BundleAnalyzerPlugin()],
+    // plugins: [new BundleAnalyzerPlugin()],
+    module:{
+      rules:[
+        {
+          test:/\.js$/,
+          exclude:/node_modules/,
+          use:[{
+            loader:'thread-loader',
+            options:{
+              worker:6
+            }
+          }]
+        }
+      ]
+    }
   }),
 };
