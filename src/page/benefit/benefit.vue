@@ -184,7 +184,7 @@
         }
         .hongbao_list_ul{
             .hongbao_list_li{
-                background: #fff url(../../images/hongbao.png) repeat-x ;
+                /* background: #fff url(../../images/hongbao.png) repeat-x ; */
                 background-size: .5rem .2rem;
                 margin-bottom: 0.5rem;
                 border-radius: 0.25rem;

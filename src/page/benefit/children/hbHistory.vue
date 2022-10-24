@@ -114,7 +114,7 @@
     .hongbao_list_ul{
         padding: 1rem .5rem;
         .hongbao_list_li{
-            background: #fff url(../../../images/expired.png) repeat-x ;
+            /* background: #fff url(../../../images/expired.png) repeat-x ; */
             background-size: .5rem .2rem;
             margin-bottom: 0.5rem;
             border-radius: 0.25rem;
