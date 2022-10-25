@@ -28,13 +28,13 @@ module.exports = {
     },
     plugins: [
       // new BundleAnalyzerPlugin(),
-      new webpack.DllReferencePlugin({
-        context: __dirname,
-        manifest: path.resolve(__dirname, "./dll/vue-manifest.json"),
-      }),
-      new AddAssetHtmlWebpackPlugin({
-        filepath: path.resolve(__dirname, "./dll/vue.dll.js"),
-      }),
+      // new webpack.DllReferencePlugin({
+      //   context: __dirname,
+      //   manifest: path.resolve(__dirname, "./dll/vue-manifest.json"),
+      // }),
+      // new AddAssetHtmlWebpackPlugin({
+      //   filepath: path.resolve(__dirname, "./dll/vue.dll.js"),
+      // }),
       // new copyWebpackPlugin({
       //   patterns:[{
       //     from:path.resolve(__dirname,'./dll/vue.dll.js'),
